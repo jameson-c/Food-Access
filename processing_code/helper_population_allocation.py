@@ -9,13 +9,10 @@ Currently, since I don't fully understand the mapping of geoids in ACS to geoids
 import geopandas as gpd
 import pandas as pd
 
-def get_population():
-
-    # Get the dataset
-    buildings_df = gpd.read_file('../processed_data/relevant_buildings.shp')
+def get_population(geopandas_dataframe):
 
     # Allocate population based on number of units (random, needs to be changed later)
-    res_buildings = buildings_df[buildings_df['class_reco'].str.contains('Residential')]
+    res_buildings = geopandas_dataframe[geopandas_dataframe['class_reco'].str.contains('Residential')]
 
 
     def allocation_rule(input_string):

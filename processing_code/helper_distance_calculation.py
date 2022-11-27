@@ -8,7 +8,6 @@ to generate the following parameters:
 '''
 
 # Import libraries
-import geopandas as gpd
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -71,13 +70,13 @@ def calculate_access(geopandas_dataframe, building_type_1, building_type_2, iden
 
     # Calculate distance
     if output_format == 'dataframe':
-
+        print('modified script')
         # Rename columns for cross joining
-        building_1_df = building_1_df[['geoid10', 'tractce10', 'coordinates', 'geometry']]
-        building_1_df.rename(columns={"coordinates": building_type_1 + "_coordinates", "geoid10": "geoid_" + building_type_1, "tractce10":"tract_id_" + building_type_1, 'geometry':'geometry' + building_type_1}, inplace=True)
+        building_1_df = building_1_df[['geoid10', 'tractce10', 'coordinates', 'building_id']]
+        building_1_df.rename(columns={'coordinates': building_type_1 + "_coordinates", 'geoid10': "geoid_" + building_type_1, 'tractce10':"tract_id_" + building_type_1, 'building_id': 'building_id' + building_type_1},inplace=True)
 
-        building_2_df = building_2_df[['geoid10', 'tractce10', 'coordinates', 'geometry']]
-        building_2_df.rename(columns={"coordinates": building_type_2 + "_coordinates", "geoid10": "geoid_" + building_type_2, "tractce10":"tract_id_" + building_type_2 , 'geometry':'geometry' + building_type_2}, inplace=True)
+        building_2_df = building_2_df[['geoid10', 'tractce10', 'coordinates', 'building_id']]
+        building_2_df.rename(columns={'coordinates': building_type_2 + "_coordinates", 'geoid10': "geoid_" + building_type_2, 'tractce10':"tract_id_" + building_type_2, 'building_id': 'building_id' + building_type_2},inplace=True)
 
         # Cross join the 2 files
         building_1_df['key'] = 1

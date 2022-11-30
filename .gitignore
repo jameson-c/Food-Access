@@ -2,4 +2,5 @@
 # https://openac-alcogis.opendata.arcgis.com/datasets/AlCoGIS::allegheny-county-building-footprint-locations/explore?filters=eyJDTEFTUyI6WyJSIl19&location=40.462063%2C-79.916146%2C16.82
 */input_data/spatial_data/Allegheny_County_Building_Footprint_Locations.geojson
 /processed_data/*
+/processing_code/__pycache__/*
 *.csv

@@ -3,3 +3,5 @@
 */input_data/spatial_data/Allegheny_County_Building_Footprint_Locations.geojson
 /processed_data/*
 /processing_code/__pycache__/*
+*.csv
+*.npy

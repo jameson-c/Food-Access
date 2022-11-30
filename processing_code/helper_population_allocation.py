@@ -13,7 +13,7 @@ def get_population(geopandas_dataframe):
 
     # Allocate population based on number of units (random, needs to be changed later)
     res_buildings = geopandas_dataframe[geopandas_dataframe['class_reco'].str.contains('Residential')]
-
+    # res_buildings = geopandas_dataframe   # Trying to save population values to the larger dataframe. Will contain values only for residential buildings.   
 
     def allocation_rule(input_string):
 

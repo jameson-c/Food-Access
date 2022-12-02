@@ -3,7 +3,7 @@ This script creates a dataset that has the population estimate for each building
 
 NOTE:
 Currently, since I don't fully understand the mapping of geoids in ACS to geoids in buildings dataset, I am randomly allocating population, to create a pipeline. This needs to be modified soon. 
-
+Notes
 """
 # Import libraries
 import geopandas as gpd

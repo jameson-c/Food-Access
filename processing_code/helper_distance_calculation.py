@@ -39,7 +39,6 @@ def get_geocoordinate(geopandas_dataframe, polygon_column):
     return geopandas_dataframe
 
 
-# def calculate_access(geopandas_dataframe, building_type_1, building_type_2, identifier_column, geo_column, output_format, access_distance=1):
 def calculate_access(res_location_array, comm_location_array):
 
     """ 
@@ -55,14 +54,17 @@ def calculate_access(res_location_array, comm_location_array):
     A matrix of distances and access binaries
     """
 
-
+    # Create a distance calculation function
     def distance_function(res_coordinate, comm_coordinate):
         return hs.haversine(res_coordinate, comm_coordinate, unit=hs.Unit.MILES)
 
+    # Vectorize it
     fv = np.vectorize(distance_function)
 
+    # Apply it on the arrays
     distance_matrix = fv(res_location_array[:, np.newaxis], comm_location_array)
 
+    # Access function
     def func(distance):
         if distance <=1:
             return 1

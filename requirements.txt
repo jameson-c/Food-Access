@@ -1,0 +1,8 @@
+geopandas
+pandas
+matplotlib
+numpy
+haversine
+gurobipy
+warnings
+shapely

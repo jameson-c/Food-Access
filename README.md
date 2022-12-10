@@ -37,16 +37,23 @@ This model minimizes the weighted distance of residential buildings to grocery s
 6. new_store_ids_assuming_no_existing_access.csv - optimized store details assuming no existing grocery stores, chosen by model 1
 
 # Code structure
-To run the entire pipeline, please consider the prefix number for each file as the order in which it should be run.  Note that all the code files have been run, with the relevant outputs printed, in case you wish to just review the code and outputs.
+To run the entire pipeline, please consider the prefix number for each file as the order in which it should be run.  Note that all the code files have been run, with the relevant outputs printed, in case you wish to just review the code and outputs. Each code file also has more detailed comments/documentation inside it.
 
-1. 1- Filter footprints for Pittsburgh.ipynb - Performs a spatial join between 1 and 2 from Input data to get building footprints for Pittsburgh
-2. 2- Generate spatial dataset.ipynb - Uses 2-4 from Input data as well as output from code file 1 to create and clean building footprints and categories for all residential, commercial and grocery stores in Pittsburgh. 
-3. 3- getPopulation.py - Sources population information from ACS dataset
-4. 4- Baseline mode.ipynb - Creates and analyzes the baseline model's result
-5. 5- Model 1.ipynb - Creates and analyzes model 1's results
-6. 6- Model 2.ipynb - Creates and analyzes model 2's results
-7. 7- Equity Analysis.ipynb - Analyzing the fairness of optimization algorithm
-8. 8- Visualize Results.ipynb - Visualizing the outputs of all the models
+1- Filter footprints for Pittsburgh.ipynb - Performs a spatial join between 1 and 2 from Input data to get building footprints for Pittsburgh
+
+2- Generate spatial dataset.ipynb - Uses 2-4 from Input data as well as output from code file 1 to create and clean building footprints and categories for all residential, commercial and grocery stores in Pittsburgh. 
+
+3- getPopulation.py - Sources population information from ACS dataset
+
+4- Baseline mode.ipynb - Creates and analyzes the baseline model's result
+
+5- Model 1.ipynb - Creates and analyzes model 1's results
+
+6- Model 2.ipynb - Creates and analyzes model 2's results
+
+7- Equity Analysis.ipynb - Analyzing the fairness of optimization algorithm
+
+8- Visualize Results.ipynb - Visualizing the outputs of all the models
 
 ## Helper files - contain functions that get imported into the notebooks above
 1. helper_distance_calculation.py - Calculates haversine distance between any geo-coordinates

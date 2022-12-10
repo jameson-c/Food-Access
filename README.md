@@ -3,6 +3,11 @@ A respository for a project attempting to optimize the location of a new food ac
 Report - https://docs.google.com/document/d/184_CkN6iypQQOGuoTpGk3ZHd0l7heHULW_OR4nTHVyA/edit?usp=sharing
 Presentation - https://docs.google.com/presentation/d/1kGsfcFFK2ssEczBRGKjMudWvYdUN8B3zCjCe041ir9w/edit?usp=sharing
 
+# TO_DO
+1. put and upload input data 6 in drive folder
+2. CLean up equity analysis
+3. In equity analysis, change how food dessert data is being imported (use UDA, filter in code itself)
+
 # Optimization models
 
 ## Baseline model
@@ -23,6 +28,8 @@ This model minimizes the weighted distance of residential buildings to grocery s
 3. Zoning.* - Zoning information for Pittsburgh. This is a shapefile. 
 4. Allegheny_county_assets.csv - Allegheny county asset information including location data on supermarkets, food banks and WIC vendors. 
 5. usda_lowincomelowaccess.csv - Dataset that identifies which census tracts are low income low access to food as defined by USDA
+6. Demographics_Combined_Updated.csv - Demographic information of interest for equity analysis
+
 
 ## Processed data (contains processed data, generated using code)
 1. pittsburgh_footprint.shp - Building footprints in pittsburgh. Is a spatial join between 1 and 2 from Input data. Created in 1- Filter footprints for Pittsburgh.ipynb

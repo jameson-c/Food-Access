@@ -1,12 +1,9 @@
 # FoodAccess
-A respository for a project attempting to optimize the location of a new food access point in Pittsburgh.
-Report - https://docs.google.com/document/d/184_CkN6iypQQOGuoTpGk3ZHd0l7heHULW_OR4nTHVyA/edit?usp=sharing
-Presentation - https://docs.google.com/presentation/d/1kGsfcFFK2ssEczBRGKjMudWvYdUN8B3zCjCe041ir9w/edit?usp=sharing
+A respository for a project attempting to optimize the location of a new food access point in Pittsburgh. For more details about the project, motivation and results, see:
 
-# TO_DO
-1. put and upload input data 6 in drive folder
-2. CLean up equity analysis
-3. In equity analysis, change how food dessert data is being imported (use UDA, filter in code itself)
+Report - [click here](https://docs.google.com/document/d/184_CkN6iypQQOGuoTpGk3ZHd0l7heHULW_OR4nTHVyA/edit?usp=sharing)
+
+Presentation - [click here](https://docs.google.com/presentation/d/1kGsfcFFK2ssEczBRGKjMudWvYdUN8B3zCjCe041ir9w/edit?usp=sharing)
 
 # Optimization models
 
@@ -32,40 +29,34 @@ This model minimizes the weighted distance of residential buildings to grocery s
 
 
 ## Processed data (contains processed data, generated using code)
-1. pittsburgh_footprint.shp - Building footprints in pittsburgh. Is a spatial join between 1 and 2 from Input data. Created in 1- Filter footprints for Pittsburgh.ipynb
-2. relevant_buildings.* - Uses 2, 3 and 4 from Input data to create building footprints and categories for all residential, commercial and grocery stores in Pittsburgh. Created in 2- Generate spatial dataset.ipynb
+1. pittsburgh_footprint.* - Shapefile of Building footprints in pittsburgh. Is a spatial join between 1 and 2 from Input data. Created in 1- Filter footprints for Pittsburgh.ipynb
+2. relevant_buildings.* - Shapefile that Uses 2, 3 and 4 from Input data to create building footprints and categories for all residential, commercial and grocery stores in Pittsburgh. Created in 2- Generate spatial dataset.ipynb
 3. ACSData.csv - Census tract demographic information. Sourced using API in 3- getPopulation.py
 4. res_comm_distance_matrix.npy - Pairwise Haversine distance (in miles) between all residential buildings and commercial buildings. Code to generate is in modelling code files (4- Baseline model.ipynb, 5- Model 1.ipynb). It is saved into the processed data folder because of large size (5.5 GB). 
 5. new_store_ids.csv - additional optimized store details chosen by model 1
 6. new_store_ids_assuming_no_existing_access.csv - optimized store details assuming no existing grocery stores, chosen by model 1
 
 # Code structure
-To run the entire pipeline, please consider the prefix number for each file as the order in which it should be run. 
-
-## Files whose outputs are provided in the dataset (processed data) and need not be run (pre processing). 
+To run the entire pipeline, please consider the prefix number for each file as the order in which it should be run.  Note that all the code files have been run, with the relevant outputs printed, in case you wish to just review the code and outputs.
 
 1. 1- Filter footprints for Pittsburgh.ipynb - Performs a spatial join between 1 and 2 from Input data to get building footprints for Pittsburgh
 2. 2- Generate spatial dataset.ipynb - Uses 2-4 from Input data as well as output from code file 1 to create and clean building footprints and categories for all residential, commercial and grocery stores in Pittsburgh. 
 3. 3- getPopulation.py - Sources population information from ACS dataset
-
-## Files which need to be run (modelling and analysis)
 4. 4- Baseline mode.ipynb - Creates and analyzes the baseline model's result
 5. 5- Model 1.ipynb - Creates and analyzes model 1's results
 6. 6- Model 2.ipynb - Creates and analyzes model 2's results
 7. 7- Equity Analysis.ipynb - Analyzing the fairness of optimization algorithm
 8. 8- Visualize Results.ipynb - Visualizing the outputs of all the models
 
-## Helper files 
+## Helper files - contain functions that get imported into the notebooks above
 1. helper_distance_calculation.py - Calculates haversine distance between any geo-coordinates
 2. helper_population_allocation.py - Estimates population at each residential building
 
 # How to implement the pipeline
 
 - Clone this repository
-- `pip install -r requirements.txt`
-- Download dataset from this google drive link and place it inside your local repo folder. Please don't change the folder name or structure.
+- Run `pip install -r requirements.txt` at the root, to install all required libraries
+- Download datasets from [this google drive link](https://drive.google.com/drive/folders/1n0HTKDv1E_QrUfTgtSJ1NI7MjqyooR50?usp=sharing) and place it inside your local repo folder. Please don't change the folder name or structure: in the root of the repo, you should have two folders: 'input_data' and 'processed_data', containing the datasets specified above. **Note: the datasets are large (up to 5gb), which is why we haven't provided it in this repo.**
 - Run files in order as mentioned in code structure
-    - If you download the entire dataset from google drive, then code files 1,2 and 3 need not be run. 
-    - Irrespective of this, the input data needs to be downloaded and present in the local repo folder. 
 
 # Other notes?

@@ -7,9 +7,6 @@ installed using pip install autocensus and works for python 3.7 and higher.
 Downloading this file may fail. Apparently the process for downloading these
 files is a bit complicated. See getACS_readMe if you encounter issues.
 
-File Input: Your census API key and 'ACS Variable Documentation.csv.' The
-file contains a list of variables to be queried in the queryCensus function.
-
 File Output: A pandas dataframe containing every Census Tract in Cook County, with a 
 'geometry' field, readable by the geopandas package. Tracking 100 variables.
 """
@@ -17,9 +14,11 @@ from autocensus import Query
 import pandas as pd
 from pyprojroot import here
 
-def queryCensus(apiKey):
-    ACSVars = pd.read_csv('C:/Users/jacar/OneDrive/Documents/GitHub/Food-Access/processing_code/ACS Variable Documentation.csv') # read variables
-    
+def queryCensus(apiKey):    
+    # Define what variables we want from the ACS data
+    ACSVars = pd.DataFrame(data={'Key':['B01003_001E', 'B25010_001E'], 
+                            'Description': ['Total Population', 'Average household size']})
+
     '''
     Initialize query object for autocensus. 
     estimate = 5 establishes 5-year averages
@@ -65,7 +64,7 @@ if __name__ == '__main__':
     while err != 0:
         try:
             frame = queryCensus(apikey)
-            frame.to_csv('C:/Users/jacar/OneDrive/Documents/GitHub/Food-Access/processing_code/ACSData.csv')
+            frame.to_csv('../processed_data/ACSData.csv')
             err = 0
         except:
             print('Try again! Error.')

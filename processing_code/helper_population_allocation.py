@@ -16,7 +16,7 @@ def get_population(geopandas_dataframe):
     '''
 
     # Read ACS data which contains information for population estimation
-    population = pd.read_csv('ACSData.csv')
+    population = pd.read_csv('../processed_data/ACSData.csv')
 
     # Allocate population based on number of units (random, needs to be changed later)
     res_buildings = geopandas_dataframe[geopandas_dataframe['class_reco'].str.contains('Residential')]

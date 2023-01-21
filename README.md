@@ -64,4 +64,4 @@ To run the entire pipeline, please consider the prefix number for each file as t
 - Clone this repository
 - Run `pip install -r requirements.txt` at the root, to install all required libraries
 - Download datasets from [this google drive link](https://drive.google.com/drive/folders/1n0HTKDv1E_QrUfTgtSJ1NI7MjqyooR50?usp=sharing) and place it inside your local repo folder. Please don't change the folder name or structure: in the root of the repo, you should have two folders: 'input_data' and 'processed_data', containing the datasets specified above. **Note: the datasets are large (up to 5gb), which is why we haven't provided it in this repo.**
-- Run files in order as mentioned in code structure
+- Run files in order as mentioned in code structure.
